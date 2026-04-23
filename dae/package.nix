@@ -27,6 +27,8 @@ buildGoModule rec {
   env.VERSION = version;
 
   buildPhase = ''
+    substituteInPlace Makefile \
+      --replace-fail 'DEFAULT_GOEXPERIMENT := heapminimum512kib,randomizedheapbase64' 'DEFAULT_GOEXPERIMENT :='
     make CFLAGS="-D__REMOVE_BPF_PRINTK -fno-stack-protector -Wno-unused-command-line-argument" \
     NOSTRIP=y \
     OUTPUT=$out/bin/dae

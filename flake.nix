@@ -76,7 +76,7 @@
                           // {
                             inherit version;
                             src = pkgs.fetchFromGitHub {
-                              owner = "daeuniverse";
+                              owner = "dudujerry452";
                               repo = "dae";
                               inherit rev hash;
                               fetchSubmodules = true;
